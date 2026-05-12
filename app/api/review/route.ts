@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import {calculateNextReview, Rating} from "@/lib/srs";
 
 export async function POST(req: NextRequest) {
     const body = await req.json();
@@ -19,31 +20,18 @@ export async function POST(req: NextRequest) {
         );
     }
 
-    let nextInterval = 1;
-
-    if (rating === "good") {
-        nextInterval = 3;
-    }
-
-    if (rating === "easy") {
-        nextInterval = 7;
-    }
-
-    const nextDueDate = new Date();
-
-    nextDueDate.setDate(
-        nextDueDate.getDate() + nextInterval
-    );
+    const nextReview = calculateNextReview({
+        currentInterval: userWord.interval,
+        repetitions: userWord.repetitions,
+        easeFactor: userWord.easeFactor,
+        rating: rating as Rating,
+    });
 
     const updated = await prisma.userWord.update({
         where: {
             id: userWordId,
         },
-        data: {
-            interval: nextInterval,
-            repetitions: userWord.repetitions + 1,
-            dueDate: nextDueDate,
-        },
+        data: nextReview,
     });
 
     return NextResponse.json(updated);
