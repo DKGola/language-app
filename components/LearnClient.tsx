@@ -21,11 +21,24 @@ type Card = {
 
 type LearnClientProps = {
     initialCards: Card[];
+    initialReviewedTodayCount: number;
+    initialTotalTodayCount: number;
 };
 
-export function LearnClient({ initialCards }: LearnClientProps) {
+export function LearnClient({
+                                initialCards,
+                                initialReviewedTodayCount,
+                                initialTotalTodayCount,
+                            }: LearnClientProps) {
     const [cards, setCards] = useState(initialCards);
     const [showBack, setShowBack] = useState(false);
+    const [reviewedCount, setReviewedCount] = useState(
+        initialReviewedTodayCount
+    );
+
+    const totalCount = initialTotalTodayCount;
+    const progress =
+        totalCount === 0 ? 100 : Math.round((reviewedCount / totalCount) * 100);
 
     async function reviewCard(rating: Rating) {
         const currentCard = cards[0];
@@ -42,6 +55,7 @@ export function LearnClient({ initialCards }: LearnClientProps) {
         });
 
         setCards((prev) => prev.filter((card) => card.id !== currentCard.id));
+        setReviewedCount((prev) => prev + 1);
         setShowBack(false);
     }
 
@@ -50,7 +64,12 @@ export function LearnClient({ initialCards }: LearnClientProps) {
             <main className="min-h-screen flex items-center justify-center p-8">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold mb-4">Heute erledigt 🎉</h1>
-                    <p className="text-gray-600">Alle fälligen Karten wurden gelernt.</p>
+                    <p className="text-gray-600">
+                        Alle fälligen Karten wurden gelernt.
+                    </p>
+                    <p className="mt-4 text-sm text-gray-500">
+                        {reviewedCount} / {totalCount} erledigt
+                    </p>
                 </div>
             </main>
         );
@@ -60,6 +79,22 @@ export function LearnClient({ initialCards }: LearnClientProps) {
 
     return (
         <main className="min-h-screen flex flex-col items-center justify-center p-8">
+            <div className="mb-6 w-full max-w-xl">
+                <div className="mb-2 flex justify-between text-sm text-gray-500">
+          <span>
+            {reviewedCount} / {totalCount} erledigt
+          </span>
+                    <span>{progress}%</span>
+                </div>
+
+                <div className="h-2 rounded-full bg-gray-200">
+                    <div
+                        className="h-2 rounded-full bg-black transition-all"
+                        style={{ width: `${progress}%` }}
+                    />
+                </div>
+            </div>
+
             <div className="mb-6 text-sm text-gray-500">
                 Noch {cards.length} Karten
             </div>

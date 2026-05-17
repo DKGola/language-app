@@ -53,5 +53,25 @@ model UserWord {
   user User @relation(fields: [userId], references: [id])
   word Word @relation(fields: [wordId], references: [id])
 
+  reviewLogs ReviewLog[]
+
   @@unique([userId, wordId])
+}
+
+model ReviewLog {
+  id String @id @default(cuid())
+
+  userWordId String
+  rating     String
+
+  previousInterval    Int
+  nextInterval        Int
+  previousRepetitions Int
+  nextRepetitions     Int
+  previousEaseFactor  Float
+  nextEaseFactor      Float
+
+  reviewedAt DateTime @default(now())
+
+  userWord UserWord @relation(fields: [userWordId], references: [id])
 }
