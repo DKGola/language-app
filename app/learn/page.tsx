@@ -15,6 +15,12 @@ export default async function LearnPage() {
     const endOfToday = new Date();
     endOfToday.setHours(23, 59, 59, 999);
 
+    const user = await prisma.user.findUnique({
+        where: {
+            id: DUMMY_USER_ID,
+        },
+    });
+
     const cards = await prisma.userWord.findMany({
         where: {
             userId: DUMMY_USER_ID,
@@ -50,6 +56,8 @@ export default async function LearnPage() {
             initialCards={cards}
             initialReviewedTodayCount={reviewedTodayCount}
             initialTotalTodayCount={totalTodayCount}
+            initialStreak={user?.streak ?? 0}
+            initialXp={user?.xp ?? 0}
         />
     );
 }

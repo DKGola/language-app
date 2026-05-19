@@ -18,6 +18,7 @@ model User {
   name String?
 
   streak           Int      @default(0)
+  xp               Int      @default(0)
   lastCompletedAt  DateTime?
 
   userWords UserWord[]

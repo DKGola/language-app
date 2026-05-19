@@ -23,18 +23,22 @@ type LearnClientProps = {
     initialCards: Card[];
     initialReviewedTodayCount: number;
     initialTotalTodayCount: number;
+    initialStreak: number;
+    initialXp: number;
 };
 
 export function LearnClient({
                                 initialCards,
                                 initialReviewedTodayCount,
                                 initialTotalTodayCount,
+                                initialStreak,
+                                initialXp,
                             }: LearnClientProps) {
     const [cards, setCards] = useState(initialCards);
     const [showBack, setShowBack] = useState(false);
-    const [reviewedCount, setReviewedCount] = useState(
-        initialReviewedTodayCount
-    );
+    const [reviewedCount, setReviewedCount] = useState(initialReviewedTodayCount);
+    const [streak, setStreak] = useState(initialStreak);
+    const [xp, setXp] = useState(initialXp);
 
     const totalCount = initialTotalTodayCount;
     const progress =
@@ -43,7 +47,7 @@ export function LearnClient({
     async function reviewCard(rating: Rating) {
         const currentCard = cards[0];
 
-        await fetch("/api/review", {
+        const res = await fetch("/api/review", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -53,6 +57,13 @@ export function LearnClient({
                 rating,
             }),
         });
+
+        const data = await res.json();
+
+        if (data.dayCompleted) {
+            setStreak((prev) => prev + 1);
+            setXp((prev) => prev + 50);
+        }
 
         setCards((prev) => prev.filter((card) => card.id !== currentCard.id));
         setReviewedCount((prev) => prev + 1);
@@ -81,9 +92,9 @@ export function LearnClient({
         <main className="min-h-screen flex flex-col items-center justify-center p-8">
             <div className="mb-6 w-full max-w-xl">
                 <div className="mb-2 flex justify-between text-sm text-gray-500">
-          <span>
-            {reviewedCount} / {totalCount} erledigt
-          </span>
+                  <span>
+                    {reviewedCount} / {totalCount} erledigt
+                  </span>
                     <span>{progress}%</span>
                 </div>
 
@@ -93,6 +104,11 @@ export function LearnClient({
                         style={{ width: `${progress}%` }}
                     />
                 </div>
+            </div>
+
+            <div className="mt-4 flex justify-center gap-4 text-sm text-gray-600">
+                <span>🔥 {streak}</span>
+                <span>⭐ {xp} XP</span>
             </div>
 
             <div className="mb-6 text-sm text-gray-500">

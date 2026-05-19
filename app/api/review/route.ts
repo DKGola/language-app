@@ -74,6 +74,8 @@ export async function POST(req: NextRequest) {
         },
     });
 
+    let dayCompleted = false;
+
     if (remaining === 0) {
         const user = await prisma.user.findUnique({
             where: { id: userWord.userId },
@@ -100,11 +102,19 @@ export async function POST(req: NextRequest) {
                     streak: {
                         increment: 1,
                     },
+                    xp: {
+                        increment: 50,
+                    },
                     lastCompletedAt: new Date(),
                 },
             });
+
+            dayCompleted = true;
         }
     }
 
-    return NextResponse.json(updated);
+    return NextResponse.json({
+        userWord: updated,
+        dayCompleted,
+    });
 }
