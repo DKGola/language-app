@@ -4,7 +4,7 @@ import { LearnClient } from "@/components/LearnClient";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-const DUMMY_USER_ID = "cmovxq9ad0000dqjtsqm1kxwy";
+const DUMMY_USER_ID = "cmpcpfzjh0000e961l4alnl3w";
 
 export default async function LearnPage() {
     const now = new Date();

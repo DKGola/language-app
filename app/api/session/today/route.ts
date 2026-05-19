@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-const DUMMY_USER_ID = "cmovxq9ad0000dqjtsqm1kxwy";
+const DUMMY_USER_ID = "cmpcpfzjh0000e961l4alnl3w";
 
 export async function GET() {
     const startOfToday = new Date();

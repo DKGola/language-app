@@ -17,41 +17,6 @@ async function main() {
         },
     });
 
-    await prisma.word.createMany({
-        data: [
-            {
-                front: "Haus",
-                back: "house",
-                languageFrom: "de",
-                languageTo: "en",
-            },
-            {
-                front: "Baum",
-                back: "tree",
-                languageFrom: "de",
-                languageTo: "en",
-            },
-            {
-                front: "gehen",
-                back: "to go",
-                languageFrom: "de",
-                languageTo: "en",
-            },
-            {
-                front: "essen",
-                back: "to eat",
-                languageFrom: "de",
-                languageTo: "en",
-            },
-            {
-                front: "Wasser",
-                back: "water",
-                languageFrom: "de",
-                languageTo: "en",
-            },
-        ],
-    });
-
     const allWords = await prisma.word.findMany();
 
     for (const word of allWords) {

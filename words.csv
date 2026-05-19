@@ -1,0 +1,1001 @@
+front,back,languageFrom,languageTo
+person,la persona,en,es
+people,las personas,en,es
+man,el hombre,en,es
+men,los hombres,en,es
+woman,la mujer,en,es
+women,las mujeres,en,es
+child,el niño / la niña,en,es
+children,los niños / las niñas,en,es
+friend,el amigo / la amiga,en,es
+friends,los amigos / las amigas,en,es
+family,la familia,en,es
+families,las familias,en,es
+mother,la madre,en,es
+mothers,las madres,en,es
+father,el padre,en,es
+fathers,los padres,en,es
+parent,el padre / la madre,en,es
+parents,los padres,en,es
+son,el hijo,en,es
+sons,los hijos,en,es
+daughter,la hija,en,es
+daughters,las hijas,en,es
+brother,el hermano,en,es
+brothers,los hermanos,en,es
+sister,la hermana,en,es
+sisters,las hermanas,en,es
+husband,el esposo,en,es
+husbands,los esposos,en,es
+wife,la esposa,en,es
+wives,las esposas,en,es
+boy,el chico,en,es
+boys,los chicos,en,es
+girl,la chica,en,es
+girls,las chicas,en,es
+student,el estudiante / la estudiante,en,es
+students,los estudiantes,en,es
+teacher,el profesor / la profesora,en,es
+teachers,los profesores,en,es
+doctor,el médico / la médica,en,es
+doctors,los médicos,en,es
+worker,el trabajador / la trabajadora,en,es
+workers,los trabajadores,en,es
+boss,el jefe / la jefa,en,es
+bosses,los jefes,en,es
+customer,el cliente / la clienta,en,es
+customers,los clientes,en,es
+neighbor,el vecino / la vecina,en,es
+neighbors,los vecinos,en,es
+stranger,el desconocido / la desconocida,en,es
+strangers,los desconocidos,en,es
+house,la casa,en,es
+houses,las casas,en,es
+home,el hogar,en,es
+homes,los hogares,en,es
+room,la habitación,en,es
+rooms,las habitaciones,en,es
+bedroom,el dormitorio,en,es
+bedrooms,los dormitorios,en,es
+bathroom,el baño,en,es
+bathrooms,los baños,en,es
+kitchen,la cocina,en,es
+kitchens,las cocinas,en,es
+door,la puerta,en,es
+doors,las puertas,en,es
+window,la ventana,en,es
+windows,las ventanas,en,es
+wall,la pared,en,es
+walls,las paredes,en,es
+floor,el suelo,en,es
+floors,los suelos,en,es
+ceiling,el techo,en,es
+ceilings,los techos,en,es
+table,la mesa,en,es
+tables,las mesas,en,es
+chair,la silla,en,es
+chairs,las sillas,en,es
+bed,la cama,en,es
+beds,las camas,en,es
+sofa,el sofá,en,es
+sofas,los sofás,en,es
+lamp,la lámpara,en,es
+lamps,las lámparas,en,es
+phone,el teléfono,en,es
+phones,los teléfonos,en,es
+computer,la computadora,en,es
+computers,las computadoras,en,es
+screen,la pantalla,en,es
+screens,las pantallas,en,es
+key,la llave,en,es
+keys,las llaves,en,es
+bag,la bolsa,en,es
+bags,las bolsas,en,es
+book,el libro,en,es
+books,los libros,en,es
+notebook,el cuaderno,en,es
+notebooks,los cuadernos,en,es
+pen,el bolígrafo,en,es
+pens,los bolígrafos,en,es
+paper,el papel,en,es
+papers,los papeles,en,es
+city,la ciudad,en,es
+cities,las ciudades,en,es
+town,el pueblo,en,es
+towns,los pueblos,en,es
+country,el país,en,es
+countries,los países,en,es
+world,el mundo,en,es
+worlds,los mundos,en,es
+street,la calle,en,es
+streets,las calles,en,es
+road,la carretera,en,es
+roads,las carreteras,en,es
+car,el coche,en,es
+cars,los coches,en,es
+bus,el autobús,en,es
+buses,los autobuses,en,es
+train,el tren,en,es
+trains,los trenes,en,es
+plane,el avión,en,es
+planes,los aviones,en,es
+bicycle,la bicicleta,en,es
+bicycles,las bicicletas,en,es
+station,la estación,en,es
+stations,las estaciones,en,es
+airport,el aeropuerto,en,es
+airports,los aeropuertos,en,es
+hotel,el hotel,en,es
+hotels,los hoteles,en,es
+restaurant,el restaurante,en,es
+restaurants,los restaurantes,en,es
+store,la tienda,en,es
+stores,las tiendas,en,es
+market,el mercado,en,es
+markets,los mercados,en,es
+bank,el banco,en,es
+banks,los bancos,en,es
+hospital,el hospital,en,es
+hospitals,los hospitales,en,es
+school,la escuela,en,es
+schools,las escuelas,en,es
+university,la universidad,en,es
+universities,las universidades,en,es
+office,la oficina,en,es
+offices,las oficinas,en,es
+company,la empresa,en,es
+companies,las empresas,en,es
+job,el trabajo,en,es
+jobs,los trabajos,en,es
+meeting,la reunión,en,es
+meetings,las reuniones,en,es
+day,el día,en,es
+days,los días,en,es
+week,la semana,en,es
+weeks,las semanas,en,es
+month,el mes,en,es
+months,los meses,en,es
+year,el año,en,es
+years,los años,en,es
+hour,la hora,en,es
+hours,las horas,en,es
+minute,el minuto,en,es
+minutes,los minutos,en,es
+second,el segundo,en,es
+seconds,los segundos,en,es
+morning,la mañana,en,es
+mornings,las mañanas,en,es
+afternoon,la tarde,en,es
+afternoons,las tardes,en,es
+night,la noche,en,es
+nights,las noches,en,es
+today,el día de hoy,en,es
+todays,los días de hoy,en,es
+tomorrow,el mañana,en,es
+tomorrows,los mañanas,en,es
+yesterday,el ayer,en,es
+yesterdays,los ayeres,en,es
+time,el tiempo,en,es
+times,los tiempos,en,es
+moment,el momento,en,es
+moments,los momentos,en,es
+calendar,el calendario,en,es
+calendars,los calendarios,en,es
+date,la fecha,en,es
+dates,las fechas,en,es
+birthday,el cumpleaños,en,es
+birthdays,los cumpleaños,en,es
+holiday,el día festivo,en,es
+holidays,los días festivos,en,es
+water,el agua,en,es
+waters,las aguas,en,es
+food,la comida,en,es
+foods,las comidas,en,es
+bread,el pan,en,es
+breads,los panes,en,es
+rice,el arroz,en,es
+rices,los arroces,en,es
+egg,el huevo,en,es
+eggs,los huevos,en,es
+meat,la carne,en,es
+meats,las carnes,en,es
+fish,el pescado,en,es
+chicken,el pollo,en,es
+chickens,los pollos,en,es
+fruit,la fruta,en,es
+fruits,las frutas,en,es
+apple,la manzana,en,es
+apples,las manzanas,en,es
+banana,el plátano,en,es
+bananas,los plátanos,en,es
+orange,la naranja,en,es
+oranges,las naranjas,en,es
+vegetable,la verdura,en,es
+vegetables,las verduras,en,es
+potato,la patata,en,es
+potatoes,las patatas,en,es
+tomato,el tomate,en,es
+tomatoes,los tomates,en,es
+onion,la cebolla,en,es
+onions,las cebollas,en,es
+salad,la ensalada,en,es
+salads,las ensaladas,en,es
+soup,la sopa,en,es
+soups,las sopas,en,es
+coffee,el café,en,es
+coffees,los cafés,en,es
+tea,el té,en,es
+teas,los tés,en,es
+milk,la leche,en,es
+milks,las leches,en,es
+beer,la cerveza,en,es
+beers,las cervezas,en,es
+wine,el vino,en,es
+wines,los vinos,en,es
+breakfast,el desayuno,en,es
+breakfasts,los desayunos,en,es
+lunch,el almuerzo,en,es
+lunches,los almuerzos,en,es
+dinner,la cena,en,es
+dinners,las cenas,en,es
+meal,la comida,en,es
+meals,las comidas,en,es
+menu,el menú,en,es
+menus,los menús,en,es
+bill,la cuenta,en,es
+bills,las cuentas,en,es
+head,la cabeza,en,es
+heads,las cabezas,en,es
+face,la cara,en,es
+faces,las caras,en,es
+eye,el ojo,en,es
+eyes,los ojos,en,es
+ear,la oreja,en,es
+ears,las orejas,en,es
+nose,la nariz,en,es
+noses,las narices,en,es
+mouth,la boca,en,es
+mouths,las bocas,en,es
+tooth,el diente,en,es
+teeth,los dientes,en,es
+hair,el pelo,en,es
+hairs,los pelos,en,es
+hand,la mano,en,es
+hands,las manos,en,es
+arm,el brazo,en,es
+arms,los brazos,en,es
+leg,la pierna,en,es
+legs,las piernas,en,es
+foot,el pie,en,es
+feet,los pies,en,es
+heart,el corazón,en,es
+hearts,los corazones,en,es
+body,el cuerpo,en,es
+bodies,los cuerpos,en,es
+health,la salud,en,es
+healths,las saludes,en,es
+pain,el dolor,en,es
+pains,los dolores,en,es
+medicine,la medicina,en,es
+medicines,las medicinas,en,es
+doctor appointment,la cita médica,en,es
+doctor appointments,las citas médicas,en,es
+shirt,la camisa,en,es
+shirts,las camisas,en,es
+pants,los pantalones,en,es
+pairs of pants,los pantalones,en,es
+shoe,el zapato,en,es
+shoes,los zapatos,en,es
+dress,el vestido,en,es
+dresses,los vestidos,en,es
+coat,el abrigo,en,es
+coats,los abrigos,en,es
+hat,el sombrero,en,es
+hats,los sombreros,en,es
+watch,el reloj,en,es
+watches,los relojes,en,es
+glasses,las gafas,en,es
+pairs of glasses,las gafas,en,es
+color,el color,en,es
+colors,los colores,en,es
+red,el rojo,en,es
+reds,los rojos,en,es
+blue,el azul,en,es
+blues,los azules,en,es
+green,el verde,en,es
+greens,los verdes,en,es
+black,el negro,en,es
+blacks,los negros,en,es
+white,el blanco,en,es
+whites,los blancos,en,es
+money,el dinero,en,es
+monies,los dineros,en,es
+price,el precio,en,es
+prices,los precios,en,es
+card,la tarjeta,en,es
+cards,las tarjetas,en,es
+cash,el efectivo,en,es
+cash amounts,los efectivos,en,es
+ticket,el billete,en,es
+tickets,los billetes,en,es
+number,el número,en,es
+numbers,los números,en,es
+name,el nombre,en,es
+names,los nombres,en,es
+address,la dirección,en,es
+addresses,las direcciones,en,es
+email,el correo electrónico,en,es
+emails,los correos electrónicos,en,es
+password,la contraseña,en,es
+passwords,las contraseñas,en,es
+question,la pregunta,en,es
+questions,las preguntas,en,es
+answer,la respuesta,en,es
+answers,las respuestas,en,es
+problem,el problema,en,es
+problems,los problemas,en,es
+solution,la solución,en,es
+solutions,las soluciones,en,es
+idea,la idea,en,es
+ideas,las ideas,en,es
+reason,la razón,en,es
+reasons,las razones,en,es
+example,el ejemplo,en,es
+examples,los ejemplos,en,es
+word,la palabra,en,es
+words,las palabras,en,es
+language,el idioma,en,es
+languages,los idiomas,en,es
+sentence,la frase,en,es
+sentences,las frases,en,es
+story,la historia,en,es
+stories,las historias,en,es
+news,la noticia,en,es
+news items,las noticias,en,es
+message,el mensaje,en,es
+messages,los mensajes,en,es
+letter,la carta,en,es
+letters,las cartas,en,es
+dog,el perro,en,es
+dogs,los perros,en,es
+cat,el gato,en,es
+cats,los gatos,en,es
+bird,el pájaro,en,es
+birds,los pájaros,en,es
+animal,el animal,en,es
+animals,los animales,en,es
+tree,el árbol,en,es
+trees,los árboles,en,es
+flower,la flor,en,es
+flowers,las flores,en,es
+plant,la planta,en,es
+plants,las plantas,en,es
+river,el río,en,es
+rivers,los ríos,en,es
+sea,el mar,en,es
+seas,los mares,en,es
+mountain,la montaña,en,es
+mountains,las montañas,en,es
+beach,la playa,en,es
+beaches,las playas,en,es
+sky,el cielo,en,es
+skies,los cielos,en,es
+sun,el sol,en,es
+suns,los soles,en,es
+moon,la luna,en,es
+moons,las lunas,en,es
+star,la estrella,en,es
+stars,las estrellas,en,es
+rain,la lluvia,en,es
+rains,las lluvias,en,es
+snow,la nieve,en,es
+snows,las nieves,en,es
+wind,el viento,en,es
+winds,los vientos,en,es
+fire,el fuego,en,es
+fires,los fuegos,en,es
+earth,la tierra,en,es
+earths,las tierras,en,es
+music,la música,en,es
+musics,las músicas,en,es
+song,la canción,en,es
+songs,las canciones,en,es
+movie,la película,en,es
+movies,las películas,en,es
+game,el juego,en,es
+games,los juegos,en,es
+sport,el deporte,en,es
+sports,los deportes,en,es
+team,el equipo,en,es
+teams,los equipos,en,es
+party,la fiesta,en,es
+parties,las fiestas,en,es
+trip,el viaje,en,es
+trips,los viajes,en,es
+vacation,las vacaciones,en,es
+vacations,las vacaciones,en,es
+photo,la foto,en,es
+photos,las fotos,en,es
+camera,la cámara,en,es
+cameras,las cámaras,en,es
+internet,el internet,en,es
+internets,los internets,en,es
+app,la aplicación,en,es
+apps,las aplicaciones,en,es
+website,el sitio web,en,es
+websites,los sitios web,en,es
+file,el archivo,en,es
+files,los archivos,en,es
+song lyric,la letra de la canción,en,es
+song lyrics,las letras de las canciones,en,es
+profile,el perfil,en,es
+profiles,los perfiles,en,es
+account,la cuenta,en,es
+accounts,las cuentas,en,es
+setting,la configuración,en,es
+settings,las configuraciones,en,es
+theme,el tema,en,es
+themes,los temas,en,es
+to be,ser / estar,en,es
+I am,soy / estoy,en,es
+you are,eres / estás,en,es
+he is,él es / él está,en,es
+we are,somos / estamos,en,es
+to have,tener,en,es
+I have,tengo,en,es
+you have,tienes,en,es
+he has,él tiene,en,es
+we have,tenemos,en,es
+to do,hacer,en,es
+I do,hago,en,es
+you do,haces,en,es
+he does,él hace,en,es
+we do,hacemos,en,es
+to go,ir,en,es
+I go,voy,en,es
+you go,vas,en,es
+he goes,él va,en,es
+we go,vamos,en,es
+to come,venir,en,es
+I come,vengo,en,es
+you come,vienes,en,es
+he comes,él viene,en,es
+we come,venimos,en,es
+to see,ver,en,es
+I see,veo,en,es
+you see,ves,en,es
+he sees,él ve,en,es
+we see,vemos,en,es
+to know,saber / conocer,en,es
+I know,sé / conozco,en,es
+you know,sabes / conoces,en,es
+he knows,él sabe / él conoce,en,es
+we know,sabemos / conocemos,en,es
+to want,querer,en,es
+I want,quiero,en,es
+you want,quieres,en,es
+he wants,él quiere,en,es
+we want,queremos,en,es
+to need,necesitar,en,es
+I need,necesito,en,es
+you need,necesitas,en,es
+he needs,él necesita,en,es
+we need,necesitamos,en,es
+to like,gustar,en,es
+I like,me gusta,en,es
+you like,te gusta,en,es
+he likes,le gusta,en,es
+we like,nos gusta,en,es
+to eat,comer,en,es
+I eat,como,en,es
+you eat,comes,en,es
+he eats,él come,en,es
+we eat,comemos,en,es
+to drink,beber,en,es
+I drink,bebo,en,es
+you drink,bebes,en,es
+he drinks,él bebe,en,es
+we drink,bebemos,en,es
+to speak,hablar,en,es
+I speak,hablo,en,es
+you speak,hablas,en,es
+he speaks,él habla,en,es
+we speak,hablamos,en,es
+to say,decir,en,es
+I say,digo,en,es
+you say,dices,en,es
+he says,él dice,en,es
+we say,decimos,en,es
+to tell,contar / decir,en,es
+I tell,cuento / digo,en,es
+you tell,cuentas / dices,en,es
+he tells,él cuenta / él dice,en,es
+we tell,contamos / decimos,en,es
+to ask,preguntar,en,es
+I ask,pregunto,en,es
+you ask,preguntas,en,es
+he asks,él pregunta,en,es
+we ask,preguntamos,en,es
+to answer,responder,en,es
+I answer,respondo,en,es
+you answer,respondes,en,es
+he answers,él responde,en,es
+we answer,respondemos,en,es
+to read,leer,en,es
+I read,leo,en,es
+you read,lees,en,es
+he reads,él lee,en,es
+we read,leemos,en,es
+to write,escribir,en,es
+I write,escribo,en,es
+you write,escribes,en,es
+he writes,él escribe,en,es
+we write,escribimos,en,es
+to listen,escuchar,en,es
+I listen,escucho,en,es
+you listen,escuchas,en,es
+he listens,él escucha,en,es
+we listen,escuchamos,en,es
+to hear,oír,en,es
+I hear,oigo,en,es
+you hear,oyes,en,es
+he hears,él oye,en,es
+we hear,oímos,en,es
+to watch,mirar,en,es
+I watch,miro,en,es
+you watch,miras,en,es
+he watches,él mira,en,es
+we watch,miramos,en,es
+to buy,comprar,en,es
+I buy,compro,en,es
+you buy,compras,en,es
+he buys,él compra,en,es
+we buy,compramos,en,es
+to sell,vender,en,es
+I sell,vendo,en,es
+you sell,vendes,en,es
+he sells,él vende,en,es
+we sell,vendemos,en,es
+to pay,pagar,en,es
+I pay,pago,en,es
+you pay,pagas,en,es
+he pays,él paga,en,es
+we pay,pagamos,en,es
+to work,trabajar,en,es
+I work,trabajo,en,es
+you work,trabajas,en,es
+he works,él trabaja,en,es
+we work,trabajamos,en,es
+to study,estudiar,en,es
+I study,estudio,en,es
+you study,estudias,en,es
+he studies,él estudia,en,es
+we study,estudiamos,en,es
+to learn,aprender,en,es
+I learn,aprendo,en,es
+you learn,aprendes,en,es
+he learns,él aprende,en,es
+we learn,aprendemos,en,es
+to teach,enseñar,en,es
+I teach,enseño,en,es
+you teach,enseñas,en,es
+he teaches,él enseña,en,es
+we teach,enseñamos,en,es
+to open,abrir,en,es
+I open,abro,en,es
+you open,abres,en,es
+he opens,él abre,en,es
+we open,abrimos,en,es
+to close,cerrar,en,es
+I close,cierro,en,es
+you close,cierras,en,es
+he closes,él cierra,en,es
+we close,cerramos,en,es
+to start,empezar,en,es
+I start,empiezo,en,es
+you start,empiezas,en,es
+he starts,él empieza,en,es
+we start,empezamos,en,es
+to finish,terminar,en,es
+I finish,termino,en,es
+you finish,terminas,en,es
+he finishes,él termina,en,es
+we finish,terminamos,en,es
+to live,vivir,en,es
+I live,vivo,en,es
+you live,vives,en,es
+he lives,él vive,en,es
+we live,vivimos,en,es
+to die,morir,en,es
+I die,muero,en,es
+you die,mueres,en,es
+he dies,él muere,en,es
+we die,morimos,en,es
+to sleep,dormir,en,es
+I sleep,duermo,en,es
+you sleep,duermes,en,es
+he sleeps,él duerme,en,es
+we sleep,dormimos,en,es
+to wake up,despertarse,en,es
+I wake up,me despierto,en,es
+you wake up,te despiertas,en,es
+he wakes up,se despierta,en,es
+we wake up,nos despertamos,en,es
+to walk,caminar,en,es
+I walk,camino,en,es
+you walk,caminas,en,es
+he walks,él camina,en,es
+we walk,caminamos,en,es
+to run,correr,en,es
+I run,corro,en,es
+you run,corres,en,es
+he runs,él corre,en,es
+we run,corremos,en,es
+to drive,conducir,en,es
+I drive,conduzco,en,es
+you drive,conduces,en,es
+he drives,él conduce,en,es
+we drive,conducimos,en,es
+to travel,viajar,en,es
+I travel,viajo,en,es
+you travel,viajas,en,es
+he travels,él viaja,en,es
+we travel,viajamos,en,es
+to wait,esperar,en,es
+I wait,espero,en,es
+you wait,esperas,en,es
+he waits,él espera,en,es
+we wait,esperamos,en,es
+to find,encontrar,en,es
+I find,encuentro,en,es
+you find,encuentras,en,es
+he finds,él encuentra,en,es
+we find,encontramos,en,es
+to lose,perder,en,es
+I lose,pierdo,en,es
+you lose,pierdes,en,es
+he loses,él pierde,en,es
+we lose,perdemos,en,es
+to remember,recordar,en,es
+I remember,recuerdo,en,es
+you remember,recuerdas,en,es
+he remembers,él recuerda,en,es
+we remember,recordamos,en,es
+to forget,olvidar,en,es
+I forget,olvido,en,es
+you forget,olvidas,en,es
+he forgets,él olvida,en,es
+we forget,olvidamos,en,es
+to think,pensar,en,es
+I think,pienso,en,es
+you think,piensas,en,es
+he thinks,él piensa,en,es
+we think,pensamos,en,es
+to believe,creer,en,es
+I believe,creo,en,es
+you believe,crees,en,es
+he believes,él cree,en,es
+we believe,creemos,en,es
+to understand,entender,en,es
+I understand,entiendo,en,es
+you understand,entiendes,en,es
+he understands,él entiende,en,es
+we understand,entendemos,en,es
+to explain,explicar,en,es
+I explain,explico,en,es
+you explain,explicas,en,es
+he explains,él explica,en,es
+we explain,explicamos,en,es
+to help,ayudar,en,es
+I help,ayudo,en,es
+you help,ayudas,en,es
+he helps,él ayuda,en,es
+we help,ayudamos,en,es
+to call,llamar,en,es
+I call,llamo,en,es
+you call,llamas,en,es
+he calls,él llama,en,es
+we call,llamamos,en,es
+to send,enviar,en,es
+I send,envío,en,es
+you send,envías,en,es
+he sends,él envía,en,es
+we send,enviamos,en,es
+to receive,recibir,en,es
+I receive,recibo,en,es
+you receive,recibes,en,es
+he receives,él recibe,en,es
+we receive,recibimos,en,es
+to use,usar,en,es
+I use,uso,en,es
+you use,usas,en,es
+he uses,él usa,en,es
+we use,usamos,en,es
+to change,cambiar,en,es
+I change,cambio,en,es
+you change,cambias,en,es
+he changes,él cambia,en,es
+we change,cambiamos,en,es
+to choose,elegir,en,es
+I choose,elijo,en,es
+you choose,eliges,en,es
+he chooses,él elige,en,es
+we choose,elegimos,en,es
+to try,intentar,en,es
+I try,intento,en,es
+you try,intentas,en,es
+he tries,él intenta,en,es
+we try,intentamos,en,es
+to play,jugar,en,es
+I play,juego,en,es
+you play,juegas,en,es
+he plays,él juega,en,es
+we play,jugamos,en,es
+to win,ganar,en,es
+I win,gano,en,es
+you win,ganas,en,es
+he wins,él gana,en,es
+we win,ganamos,en,es
+to lose a game,perder,en,es
+I lose a game,pierdo,en,es
+you lose a game,pierdes,en,es
+he loses a game,él pierde,en,es
+we lose a game,perdemos,en,es
+to love,amar / querer,en,es
+I love,amo / quiero,en,es
+you love,amas / quieres,en,es
+he loves,él ama / él quiere,en,es
+we love,amamos / queremos,en,es
+to hate,odiar,en,es
+I hate,odio,en,es
+you hate,odias,en,es
+he hates,él odia,en,es
+we hate,odiamos,en,es
+to feel,sentir,en,es
+I feel,siento,en,es
+you feel,sientes,en,es
+he feels,él siente,en,es
+we feel,sentimos,en,es
+to sit,sentarse,en,es
+I sit,me siento,en,es
+you sit,te sientas,en,es
+he sits,se sienta,en,es
+we sit,nos sentamos,en,es
+to stand up,levantarse,en,es
+I stand up,me levanto,en,es
+you stand up,te levantas,en,es
+he stands up,se levanta,en,es
+we stand up,nos levantamos,en,es
+I,yo,en,es
+you,tú / usted,en,es
+he,él,en,es
+she,ella,en,es
+we,nosotros / nosotras,en,es
+you all,ustedes / vosotros,en,es
+they,ellos / ellas,en,es
+me,me / mí,en,es
+you object,te / ti,en,es
+him,lo / le,en,es
+her,la / le,en,es
+us,nos,en,es
+them,los / las / les,en,es
+my,mi,en,es
+your,tu / su,en,es
+his,su,en,es
+her possessive,su,en,es
+our,nuestro / nuestra,en,es
+their,su,en,es
+this,este / esta,en,es
+that,ese / esa,en,es
+that over there,aquel / aquella,en,es
+these,estos / estas,en,es
+those,esos / esas,en,es
+what,qué,en,es
+who,quién,en,es
+where,dónde,en,es
+when,cuándo,en,es
+why,por qué,en,es
+how,cómo,en,es
+how much,cuánto,en,es
+which,cuál,en,es
+yes,sí,en,es
+no,no,en,es
+not,no,en,es
+maybe,quizás,en,es
+please,por favor,en,es
+thank you,gracias,en,es
+you are welcome,de nada,en,es
+hello,hola,en,es
+goodbye,adiós,en,es
+sorry,perdón / lo siento,en,es
+excuse me,disculpe,en,es
+and,y,en,es
+or,o,en,es
+but,pero,en,es
+because,porque,en,es
+if,si,en,es
+although,aunque,en,es
+when conjunction,cuando,en,es
+while,mientras,en,es
+therefore,por eso,en,es
+also,también,en,es
+too,también,en,es
+neither,tampoco,en,es
+only,solo,en,es
+very,muy,en,es
+more,más,en,es
+less,menos,en,es
+much,mucho,en,es
+many,muchos / muchas,en,es
+few,pocos / pocas,en,es
+some,algunos / algunas,en,es
+all,todo / todos,en,es
+nothing,nada,en,es
+something,algo,en,es
+someone,alguien,en,es
+nobody,nadie,en,es
+always,siempre,en,es
+never,nunca,en,es
+sometimes,a veces,en,es
+often,a menudo,en,es
+now,ahora,en,es
+later,más tarde,en,es
+before,antes,en,es
+after,después,en,es
+early,temprano,en,es
+late,tarde,en,es
+soon,pronto,en,es
+already,ya,en,es
+still,todavía,en,es
+again,otra vez,en,es
+in,en,en,es
+on,en / sobre,en,es
+at,en / a,en,es
+to,a,en,es
+from,de / desde,en,es
+with,con,en,es
+without,sin,en,es
+for,para / por,en,es
+by,por,en,es
+about,sobre,en,es
+between,entre,en,es
+under,debajo de,en,es
+over,encima de,en,es
+inside,dentro de,en,es
+outside,fuera de,en,es
+near,cerca de,en,es
+far,lejos de,en,es
+next to,al lado de,en,es
+behind,detrás de,en,es
+in front of,delante de,en,es
+until,hasta,en,es
+during,durante,en,es
+good,bueno / buena,en,es
+bad,malo / mala,en,es
+big,grande,en,es
+small,pequeño / pequeña,en,es
+new,nuevo / nueva,en,es
+old,viejo / vieja,en,es
+young,joven,en,es
+long,largo / larga,en,es
+short,corto / corta,en,es
+high,alto / alta,en,es
+low,bajo / baja,en,es
+hot,caliente,en,es
+cold,frío / fría,en,es
+warm,cálido / cálida,en,es
+cool,fresco / fresca,en,es
+easy,fácil,en,es
+difficult,difícil,en,es
+fast,rápido / rápida,en,es
+slow,lento / lenta,en,es
+beautiful,bonito / bonita,en,es
+ugly,feo / fea,en,es
+happy,feliz,en,es
+sad,triste,en,es
+angry,enojado / enojada,en,es
+tired,cansado / cansada,en,es
+sick,enfermo / enferma,en,es
+ready,listo / lista,en,es
+busy,ocupado / ocupada,en,es
+free available,libre,en,es
+important,importante,en,es
+possible,posible,en,es
+impossible,imposible,en,es
+same,mismo / misma,en,es
+different,diferente,en,es
+right correct,correcto / correcta,en,es
+wrong,incorrecto / incorrecta,en,es
+true,verdadero / verdadera,en,es
+false,falso / falsa,en,es
+open adjective,abierto / abierta,en,es
+closed,cerrado / cerrada,en,es
+full,lleno / llena,en,es
+empty,vacío / vacía,en,es
+clean,limpio / limpia,en,es
+dirty,sucio / sucia,en,es
+cheap,barato / barata,en,es
+expensive,caro / cara,en,es
+rich,rico / rica,en,es
+poor,pobre,en,es
+strong,fuerte,en,es
+weak,débil,en,es
+light weight,ligero / ligera,en,es
+heavy,pesado / pesada,en,es
+safe,seguro / segura,en,es
+dangerous,peligroso / peligrosa,en,es
+real,real,en,es
+normal,normal,en,es
+special,especial,en,es
+one,uno,en,es
+two,dos,en,es
+three,tres,en,es
+four,cuatro,en,es
+five,cinco,en,es
+six,seis,en,es
+seven,siete,en,es
+eight,ocho,en,es
+nine,nueve,en,es
+ten,diez,en,es
+eleven,once,en,es
+twelve,doce,en,es
+thirteen,trece,en,es
+fourteen,catorce,en,es
+fifteen,quince,en,es
+sixteen,dieciséis,en,es
+seventeen,diecisiete,en,es
+eighteen,dieciocho,en,es
+nineteen,diecinueve,en,es
+twenty,veinte,en,es
+thirty,treinta,en,es
+forty,cuarenta,en,es
+fifty,cincuenta,en,es
+sixty,sesenta,en,es
+seventy,setenta,en,es
+eighty,ochenta,en,es
+ninety,noventa,en,es
+one hundred,cien,en,es
+one thousand,mil,en,es
+first,primero / primera,en,es
+second ordinal,segundo / segunda,en,es
+third,tercero / tercera,en,es
+last,último / última,en,es
+next,próximo / próxima,en,es
+Monday,el lunes,en,es
+Tuesday,el martes,en,es
+Wednesday,el miércoles,en,es
+Thursday,el jueves,en,es
+Friday,el viernes,en,es
+Saturday,el sábado,en,es
+Sunday,el domingo,en,es
+January,enero,en,es
+February,febrero,en,es
+March,marzo,en,es
+April,abril,en,es
+May,mayo,en,es
+June,junio,en,es
+July,julio,en,es
+August,agosto,en,es
+September,septiembre,en,es
+October,octubre,en,es
+November,noviembre,en,es
+December,diciembre,en,es
+north,el norte,en,es
+south,el sur,en,es
+east,el este,en,es
+west,el oeste,en,es
+left,la izquierda,en,es
+right direction,la derecha,en,es
+here,aquí,en,es
+there,allí / ahí,en,es
+up,arriba,en,es
+down,abajo,en,es
+back direction,atrás,en,es
+forward,adelante,en,es
+zero,cero,en,es
+both,ambos / ambas,en,es
+each,cada,en,es
+every,cada / todos,en,es
+enough,suficiente,en,es
+almost,casi,en,es
+exactly,exactamente,en,es
