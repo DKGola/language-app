@@ -5,6 +5,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const DUMMY_USER_ID = "cmpcpfzjh0000e961l4alnl3w";
+const NEW_CARDS_PER_DAY = 5;
 
 export default async function LearnPage() {
     const now = new Date();
@@ -21,9 +22,10 @@ export default async function LearnPage() {
         },
     });
 
-    const cards = await prisma.userWord.findMany({
+    const reviewCards = await prisma.userWord.findMany({
         where: {
             userId: DUMMY_USER_ID,
+            isNew: false,
             dueDate: {
                 lte: now,
             },
@@ -35,6 +37,19 @@ export default async function LearnPage() {
             dueDate: "asc",
         },
     });
+
+    const newCards = await prisma.userWord.findMany({
+        where: {
+            userId: DUMMY_USER_ID,
+            isNew: true,
+        },
+        include: {
+            word: true,
+        },
+        take: NEW_CARDS_PER_DAY,
+    });
+
+    const cards = [...reviewCards, ...newCards];
 
     const reviewedTodayCount = await prisma.reviewLog.count({
         where: {

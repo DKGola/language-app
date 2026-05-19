@@ -51,6 +51,8 @@ model UserWord {
   repetitions Int     @default(0)
   easeFactor  Float   @default(2.5)
 
+  isNew Boolean @default(true)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

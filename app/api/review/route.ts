@@ -48,7 +48,10 @@ export async function POST(req: NextRequest) {
             where: {
                 id: userWordId,
             },
-            data: nextReview,
+            data: {
+                ...nextReview,
+                isNew: false,
+            },
         }),
 
         prisma.reviewLog.create({
