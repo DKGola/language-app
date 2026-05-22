@@ -60,13 +60,18 @@ export function LearnClient({
 
         const data = await res.json();
 
+        if (rating === "again") {
+            setCards((prev) => [...prev.slice(1), currentCard]);
+        } else {
+            setCards((prev) => prev.slice(1));
+            setReviewedCount((prev) => prev + 1);
+        }
+
         if (data.dayCompleted) {
             setStreak((prev) => prev + 1);
             setXp((prev) => prev + 50);
         }
 
-        setCards((prev) => prev.filter((card) => card.id !== currentCard.id));
-        setReviewedCount((prev) => prev + 1);
         setShowBack(false);
     }
 
