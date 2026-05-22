@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Flashcard } from "@/components/Flashcard";
 import { ReviewButtons } from "@/components/ReviewButtons";
+import Link from "next/link";
 
 type Rating = "again" | "good" | "easy";
 
@@ -11,6 +12,7 @@ type Card = {
     interval: number;
     repetitions: number;
     easeFactor: number;
+    isNew: boolean;
     word: {
         front: string;
         back: string;
@@ -63,7 +65,17 @@ export function LearnClient({
         if (rating === "again") {
             setCards((prev) => [...prev.slice(1), currentCard]);
         } else {
-            setCards((prev) => prev.slice(1));
+            setCards((prev) => {
+                const rest = prev.slice(1);
+
+                const insertIndex = Math.min(3, rest.length);
+
+                return [
+                    ...rest.slice(0, insertIndex),
+                    currentCard,
+                    ...rest.slice(insertIndex),
+                ];
+            });
             setReviewedCount((prev) => prev + 1);
         }
 
@@ -77,7 +89,13 @@ export function LearnClient({
 
     if (cards.length === 0) {
         return (
-            <main className="min-h-screen flex items-center justify-center p-8">
+            <main className="min-h-screen flex flex-col items-center justify-center p-8">
+                <Link
+                    href="/"
+                    className="mb-8 text-sm text-gray-500 hover:text-black transition"
+                >
+                    ← Zurück zum Dashboard
+                </Link>
                 <div className="text-center">
                     <h1 className="text-3xl font-bold mb-4">Heute erledigt 🎉</h1>
                     <p className="text-gray-600">
@@ -95,6 +113,12 @@ export function LearnClient({
 
     return (
         <main className="min-h-screen flex flex-col items-center justify-center p-8">
+            <Link
+                href="/"
+                className="mb-8 text-sm text-gray-500 hover:text-black transition"
+            >
+                ← Zurück zum Dashboard
+            </Link>
             <div className="mb-6 w-full max-w-xl">
                 <div className="mb-2 flex justify-between text-sm text-gray-500">
                   <span>
@@ -118,6 +142,10 @@ export function LearnClient({
 
             <div className="mb-6 text-sm text-gray-500">
                 Noch {cards.length} Karten
+            </div>
+
+            <div className="mb-2 text-xs text-gray-400">
+                {currentCard.isNew ? "New" : "Review"}
             </div>
 
             <Flashcard

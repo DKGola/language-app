@@ -27,6 +27,24 @@ export async function getTodaySession(userId: string) {
     },
   });
 
+  const newCardsStartedTodayCount = await prisma.reviewLog.count({
+    where: {
+      reviewedAt: {
+        gte: startOfToday,
+        lte: endOfToday,
+      },
+      previousRepetitions: 0,
+      userWord: {
+        userId,
+      },
+    },
+  });
+
+  const remainingNewCardsToday = Math.max(
+      0,
+      NEW_CARDS_PER_DAY - newCardsStartedTodayCount
+  );
+
   const newCards = await prisma.userWord.findMany({
     where: {
       userId,
@@ -38,7 +56,7 @@ export async function getTodaySession(userId: string) {
     orderBy: {
       createdAt: "asc",
     },
-    take: NEW_CARDS_PER_DAY,
+    take: remainingNewCardsToday,
   });
 
   const cards = [...reviewCards, ...newCards];
@@ -59,9 +77,9 @@ export async function getTodaySession(userId: string) {
   const totalTodayCount = reviewedTodayCount + remainingCount;
 
   const progress =
-    totalTodayCount === 0
-      ? 100
-      : Math.round((reviewedTodayCount / totalTodayCount) * 100);
+      totalTodayCount === 0
+          ? 100
+          : Math.round((reviewedTodayCount / totalTodayCount) * 100);
 
   return {
     reviewedTodayCount,
