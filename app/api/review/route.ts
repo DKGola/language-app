@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { calculateNextReview, Rating } from "@/lib/srs";
+import { getTodaySession } from "@/lib/session";
 
 const VALID_RATINGS: Rating[] = ["again", "good", "easy"];
 
@@ -68,51 +69,46 @@ export async function POST(req: NextRequest) {
         }),
     ]);
 
-    const remaining = await prisma.userWord.count({
-        where: {
-            userId: userWord.userId,
-            dueDate: {
-                lte: new Date(),
-            },
-        },
-    });
-
     let dayCompleted = false;
 
-    if (remaining === 0) {
-        const user = await prisma.user.findUnique({
-            where: { id: userWord.userId },
-        });
+    if (rating !== "again") {
+        const session = await getTodaySession(userWord.userId);
 
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        const last = user?.lastCompletedAt;
-
-        let alreadyCompletedToday = false;
-
-        if (last) {
-            const lastDate = new Date(last);
-            lastDate.setHours(0, 0, 0, 0);
-
-            alreadyCompletedToday = lastDate.getTime() === today.getTime();
-        }
-
-        if (!alreadyCompletedToday) {
-            await prisma.user.update({
+        if (session.remainingCount === 0) {
+            const user = await prisma.user.findUnique({
                 where: { id: userWord.userId },
-                data: {
-                    streak: {
-                        increment: 1,
-                    },
-                    xp: {
-                        increment: 50,
-                    },
-                    lastCompletedAt: new Date(),
-                },
             });
 
-            dayCompleted = true;
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const last = user?.lastCompletedAt;
+
+            let alreadyCompletedToday = false;
+
+            if (last) {
+                const lastDate = new Date(last);
+                lastDate.setHours(0, 0, 0, 0);
+
+                alreadyCompletedToday = lastDate.getTime() === today.getTime();
+            }
+
+            if (!alreadyCompletedToday) {
+                await prisma.user.update({
+                    where: { id: userWord.userId },
+                    data: {
+                        streak: {
+                            increment: 1,
+                        },
+                        xp: {
+                            increment: 50,
+                        },
+                        lastCompletedAt: new Date(),
+                    },
+                });
+
+                dayCompleted = true;
+            }
         }
     }
 

@@ -44,7 +44,9 @@ export function LearnClient({
 
     const totalCount = initialTotalTodayCount;
     const progress =
-        totalCount === 0 ? 100 : Math.round((reviewedCount / totalCount) * 100);
+        totalCount === 0
+            ? 100
+            : Math.min(100, Math.round((reviewedCount / totalCount) * 100));
 
     async function reviewCard(rating: Rating) {
         const currentCard = cards[0];
@@ -60,22 +62,18 @@ export function LearnClient({
             }),
         });
 
+        if (!res.ok) {
+            return;
+        }
+
         const data = await res.json();
 
         if (rating === "again") {
+            // Keep the card in today's queue.
             setCards((prev) => [...prev.slice(1), currentCard]);
         } else {
-            setCards((prev) => {
-                const rest = prev.slice(1);
-
-                const insertIndex = Math.min(3, rest.length);
-
-                return [
-                    ...rest.slice(0, insertIndex),
-                    currentCard,
-                    ...rest.slice(insertIndex),
-                ];
-            });
+            // "good"/"easy" cards should be completed for today.
+            setCards((prev) => prev.slice(1));
             setReviewedCount((prev) => prev + 1);
         }
 
