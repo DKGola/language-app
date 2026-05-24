@@ -1,13 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { ArrowLeft, Cat, Flame, Gem, Layers, Trophy } from "lucide-react";
 import { Flashcard } from "@/components/Flashcard";
 import { ReviewButtons } from "@/components/ReviewButtons";
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 
 type Rating = "again" | "good" | "easy";
 
-type Card = {
+type StudyCard = {
     id: string;
     interval: number;
     repetitions: number;
@@ -22,7 +26,7 @@ type Card = {
 };
 
 type LearnClientProps = {
-    initialCards: Card[];
+    initialCards: StudyCard[];
     initialReviewedTodayCount: number;
     initialTotalTodayCount: number;
     initialStreak: number;
@@ -41,6 +45,8 @@ export function LearnClient({
     const [reviewedCount, setReviewedCount] = useState(initialReviewedTodayCount);
     const [streak, setStreak] = useState(initialStreak);
     const [xp, setXp] = useState(initialXp);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const totalCount = initialTotalTodayCount;
     const progress =
@@ -50,58 +56,80 @@ export function LearnClient({
 
     async function reviewCard(rating: Rating) {
         const currentCard = cards[0];
+        setIsSubmitting(true);
+        setError(null);
 
-        const res = await fetch("/api/review", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                userWordId: currentCard.id,
-                rating,
-            }),
-        });
+        try {
+            const res = await fetch("/api/review", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userWordId: currentCard.id,
+                    rating,
+                }),
+            });
 
-        if (!res.ok) {
-            return;
+            if (!res.ok) {
+                setError("Die Karte konnte nicht gespeichert werden.");
+                return;
+            }
+
+            const data = await res.json();
+
+            if (rating === "again") {
+                setCards((prev) => [...prev.slice(1), currentCard]);
+            } else {
+                setCards((prev) => prev.slice(1));
+                setReviewedCount((prev) => prev + 1);
+            }
+
+            if (data.dayCompleted) {
+                setStreak((prev) => prev + 1);
+                setXp((prev) => prev + 50);
+            }
+
+            setShowBack(false);
+        } catch {
+            setError("Die Verbindung ist gerade unterbrochen.");
+        } finally {
+            setIsSubmitting(false);
         }
-
-        const data = await res.json();
-
-        if (rating === "again") {
-            // Keep the card in today's queue.
-            setCards((prev) => [...prev.slice(1), currentCard]);
-        } else {
-            // "good"/"easy" cards should be completed for today.
-            setCards((prev) => prev.slice(1));
-            setReviewedCount((prev) => prev + 1);
-        }
-
-        if (data.dayCompleted) {
-            setStreak((prev) => prev + 1);
-            setXp((prev) => prev + 50);
-        }
-
-        setShowBack(false);
     }
 
     if (cards.length === 0) {
         return (
-            <main className="min-h-screen flex flex-col items-center justify-center p-8">
-                <Link
-                    href="/"
-                    className="mb-8 text-sm text-gray-500 hover:text-black transition"
-                >
-                    ← Zurück zum Dashboard
-                </Link>
-                <div className="text-center">
-                    <h1 className="text-3xl font-bold mb-4">Heute erledigt 🎉</h1>
-                    <p className="text-gray-600">
-                        Alle fälligen Karten wurden gelernt.
-                    </p>
-                    <p className="mt-4 text-sm text-gray-500">
-                        {reviewedCount} / {totalCount} erledigt
-                    </p>
+            <main className="min-h-screen px-4 py-5 sm:px-8 sm:py-8">
+                <div className="mx-auto flex min-h-[calc(100vh-2.5rem)] w-full max-w-3xl flex-col gap-6">
+                    <LearningTopBar streak={streak} xp={xp} />
+
+                    <Card className="my-auto border-emerald-100 bg-white/90">
+                        <CardContent className="flex flex-col items-center p-8 text-center sm:p-10">
+                            <div className="mb-6 flex size-20 items-center justify-center rounded-[2rem] bg-emerald-100 text-emerald-600">
+                                <Trophy className="size-10" />
+                            </div>
+                            <p className="mb-2 text-sm font-black uppercase text-emerald-600">
+                                Tagesziel erreicht
+                            </p>
+                            <h1 className="text-4xl font-black text-slate-900">
+                                Heute erledigt
+                            </h1>
+                            <p className="mt-4 max-w-md text-base leading-7 text-muted-foreground">
+                                {reviewedCount} von {totalCount} Karten sind für heute
+                                geschafft.
+                            </p>
+                            <Button
+                                asChild
+                                className="mt-8 h-12 rounded-2xl px-6 font-black"
+                            >
+                                <Link href="/">
+                                    <ArrowLeft className="size-5" />
+                                    Dashboard
+                                </Link>
+                            </Button>
+                        </CardContent>
+                    </Card>
                 </div>
             </main>
         );
@@ -110,56 +138,97 @@ export function LearnClient({
     const currentCard = cards[0];
 
     return (
-        <main className="min-h-screen flex flex-col items-center justify-center p-8">
-            <Link
-                href="/"
-                className="mb-8 text-sm text-gray-500 hover:text-black transition"
-            >
-                ← Zurück zum Dashboard
-            </Link>
-            <div className="mb-6 w-full max-w-xl">
-                <div className="mb-2 flex justify-between text-sm text-gray-500">
-                  <span>
-                    {reviewedCount} / {totalCount} erledigt
-                  </span>
-                    <span>{progress}%</span>
-                </div>
+        <main className="min-h-screen px-4 py-5 sm:px-8 sm:py-8">
+            <div className="mx-auto flex w-full max-w-4xl flex-col gap-5">
+                <LearningTopBar streak={streak} xp={xp} />
 
-                <div className="h-2 rounded-full bg-gray-200">
-                    <div
-                        className="h-2 rounded-full bg-black transition-all"
-                        style={{ width: `${progress}%` }}
+                <section className="grid gap-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+                    <Button
+                        asChild
+                        variant="outline"
+                        className="h-11 justify-start rounded-2xl border-white/80 bg-white/80 font-bold shadow-sm"
+                    >
+                        <Link href="/">
+                            <ArrowLeft className="size-5" />
+                            Dashboard
+                        </Link>
+                    </Button>
+
+                    <Card className="border-sky-100">
+                        <CardContent className="p-4">
+                            <div className="mb-2 flex items-center justify-between gap-3 text-sm font-bold text-muted-foreground">
+                                <span>
+                                    {reviewedCount} / {totalCount} erledigt
+                                </span>
+                                <span>{progress}%</span>
+                            </div>
+                            <Progress value={progress} />
+                        </CardContent>
+                    </Card>
+
+                    <div className="flex h-11 items-center justify-center rounded-2xl bg-white/80 px-4 text-sm font-black text-primary shadow-sm">
+                        {cards.length} offen
+                    </div>
+                </section>
+
+                <section className="flex flex-col items-center gap-5 pt-2">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-sm font-black text-primary shadow-sm">
+                        <Layers className="size-4" />
+                        {currentCard.isNew ? "Neue Karte" : "Wiederholung"}
+                    </div>
+
+                    <Flashcard
+                        front={currentCard.word.front}
+                        back={currentCard.word.back}
+                        showBack={showBack}
+                        onToggle={() => setShowBack((prev) => !prev)}
+                        languageFrom={currentCard.word.languageFrom}
+                        languageTo={currentCard.word.languageTo}
                     />
+
+                    {error && (
+                        <div className="w-full max-w-2xl rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-bold text-rose-700">
+                            {error}
+                        </div>
+                    )}
+
+                    {showBack && (
+                        <ReviewButtons
+                            onReview={reviewCard}
+                            disabled={isSubmitting}
+                        />
+                    )}
+                </section>
+            </div>
+        </main>
+    );
+}
+
+function LearningTopBar({ streak, xp }: { streak: number; xp: number }) {
+    return (
+        <header className="flex items-center justify-between gap-3 rounded-full border border-white/70 bg-white/80 px-4 py-3 shadow-sm backdrop-blur">
+            <div className="flex min-w-0 items-center gap-3">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/25">
+                    <Cat className="size-5" />
+                </div>
+                <div className="min-w-0">
+                    <p className="truncate text-sm font-black">Vocat</p>
+                    <p className="truncate text-xs text-muted-foreground">
+                        Lernsession
+                    </p>
                 </div>
             </div>
 
-            <div className="mt-4 flex justify-center gap-4 text-sm text-gray-600">
-                <span>🔥 {streak}</span>
-                <span>⭐ {xp} XP</span>
+            <div className="flex shrink-0 items-center gap-2">
+                <div className="flex h-10 items-center gap-1.5 rounded-full bg-orange-100 px-3 text-sm font-black text-orange-700">
+                    <Flame className="size-4" />
+                    {streak}
+                </div>
+                <div className="flex h-10 items-center gap-1.5 rounded-full bg-sky-100 px-3 text-sm font-black text-sky-700">
+                    <Gem className="size-4" />
+                    {xp}
+                </div>
             </div>
-
-            <div className="mb-6 text-sm text-gray-500">
-                Noch {cards.length} Karten
-            </div>
-
-            <div className="mb-2 text-xs text-gray-400">
-                {currentCard.isNew ? "New" : "Review"}
-            </div>
-
-            <Flashcard
-                front={currentCard.word.front}
-                back={currentCard.word.back}
-                showBack={showBack}
-                onToggle={() => setShowBack((prev) => !prev)}
-            />
-
-            {!showBack && (
-                <p className="mt-4 text-gray-500">
-                    Klicke auf die Karte, um die Antwort zu sehen.
-                </p>
-            )}
-
-            {showBack && <ReviewButtons onReview={reviewCard} />}
-        </main>
+        </header>
     );
 }
