@@ -49,6 +49,10 @@
 }
 
 :root {
+  --app-background:
+    radial-gradient(circle at top left, color-mix(in oklch, var(--accent) 42%, transparent), transparent 32rem),
+    linear-gradient(180deg, color-mix(in oklch, var(--background) 92%, white), var(--background));
+  --app-background-size: auto;
   --background: oklch(0.985 0.025 225);
   --foreground: oklch(0.23 0.055 252);
   --card: oklch(1 0 0);
@@ -81,6 +85,94 @@
   --sidebar-accent-foreground: oklch(0.3 0.08 244);
   --sidebar-border: oklch(0.88 0.045 224);
   --sidebar-ring: oklch(0.68 0.16 235);
+}
+
+html[data-app-theme="mint"] {
+  --background: oklch(0.975 0.035 160);
+  --primary: oklch(0.63 0.16 158);
+  --accent: oklch(0.91 0.08 171);
+  --ring: oklch(0.63 0.16 158);
+  --app-background:
+    radial-gradient(circle at 12% 8%, oklch(0.88 0.11 162 / 54%), transparent 28rem),
+    linear-gradient(160deg, oklch(0.99 0.02 155), oklch(0.92 0.065 170));
+}
+
+html[data-app-theme="sunrise"] {
+  --background: oklch(0.98 0.04 74);
+  --primary: oklch(0.68 0.17 49);
+  --accent: oklch(0.9 0.11 82);
+  --ring: oklch(0.68 0.17 49);
+  --app-background:
+    radial-gradient(circle at 84% 10%, oklch(0.9 0.13 54 / 60%), transparent 25rem),
+    linear-gradient(145deg, oklch(0.99 0.025 86), oklch(0.95 0.055 38));
+}
+
+html[data-app-theme="lavender"] {
+  --background: oklch(0.975 0.03 310);
+  --primary: oklch(0.62 0.18 305);
+  --accent: oklch(0.91 0.09 320);
+  --ring: oklch(0.62 0.18 305);
+  --app-background:
+    radial-gradient(circle at 20% 12%, oklch(0.84 0.11 320 / 52%), transparent 24rem),
+    linear-gradient(165deg, oklch(0.99 0.02 318), oklch(0.94 0.052 286));
+}
+
+html[data-app-theme="grid"] {
+  --background: oklch(0.97 0.018 230);
+  --primary: oklch(0.52 0.12 236);
+  --accent: oklch(0.88 0.04 218);
+  --ring: oklch(0.52 0.12 236);
+  --app-background:
+    linear-gradient(oklch(0.67 0.05 230 / 13%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.67 0.05 230 / 13%) 1px, transparent 1px),
+    linear-gradient(180deg, oklch(0.99 0.01 230), oklch(0.93 0.025 225));
+  --app-background-size: 26px 26px, 26px 26px, auto;
+}
+
+html[data-app-theme="orchard"] {
+  --background: oklch(0.965 0.04 134);
+  --primary: oklch(0.54 0.15 138);
+  --accent: oklch(0.88 0.1 128);
+  --ring: oklch(0.54 0.15 138);
+  --app-background:
+    radial-gradient(circle at 75% 15%, oklch(0.84 0.15 120 / 45%), transparent 22rem),
+    radial-gradient(circle at 8% 82%, oklch(0.78 0.12 168 / 35%), transparent 20rem),
+    linear-gradient(145deg, oklch(0.99 0.02 126), oklch(0.9 0.07 145));
+}
+
+html[data-app-theme="coral"] {
+  --background: oklch(0.97 0.035 22);
+  --primary: oklch(0.62 0.19 18);
+  --accent: oklch(0.9 0.11 30);
+  --ring: oklch(0.62 0.19 18);
+  --app-background:
+    radial-gradient(circle at 18% 20%, oklch(0.86 0.16 21 / 46%), transparent 25rem),
+    linear-gradient(150deg, oklch(0.99 0.02 42), oklch(0.94 0.06 12));
+}
+
+html[data-app-theme="night"] {
+  --background: oklch(0.23 0.035 255);
+  --foreground: oklch(0.97 0.015 235);
+  --card: oklch(0.98 0.015 235);
+  --primary: oklch(0.72 0.14 235);
+  --primary-foreground: oklch(0.16 0.035 255);
+  --accent: oklch(0.42 0.12 276);
+  --muted-foreground: oklch(0.45 0.05 246);
+  --ring: oklch(0.72 0.14 235);
+  --app-background:
+    radial-gradient(circle at 18% 12%, oklch(0.47 0.16 278 / 55%), transparent 25rem),
+    linear-gradient(160deg, oklch(0.18 0.035 255), oklch(0.28 0.055 235));
+}
+
+html[data-app-theme="aurora"] {
+  --background: oklch(0.965 0.035 195);
+  --primary: oklch(0.58 0.15 192);
+  --accent: oklch(0.88 0.12 178);
+  --ring: oklch(0.58 0.15 192);
+  --app-background:
+    radial-gradient(circle at 15% 20%, oklch(0.84 0.14 174 / 54%), transparent 22rem),
+    radial-gradient(circle at 82% 24%, oklch(0.78 0.14 286 / 42%), transparent 24rem),
+    linear-gradient(150deg, oklch(0.99 0.02 190), oklch(0.91 0.06 210));
 }
 
 .dark {
@@ -123,9 +215,9 @@
   }
   body {
     @apply bg-background text-foreground;
-    background:
-      radial-gradient(circle at top left, color-mix(in oklch, var(--accent) 42%, transparent), transparent 32rem),
-      linear-gradient(180deg, color-mix(in oklch, var(--background) 92%, white), var(--background));
+    background: var(--app-background);
+    background-size: var(--app-background-size);
+    background-attachment: fixed;
   }
   html {
     @apply font-sans;

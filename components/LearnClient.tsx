@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Cat, Flame, Gem, Layers, Trophy } from "lucide-react";
+import { ArrowLeft, Cat, Flame, Gem, Layers, Award, Trophy } from "lucide-react";
 import { Flashcard } from "@/components/Flashcard";
 import { ReviewButtons } from "@/components/ReviewButtons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { getLevelProgress } from "@/lib/level";
 
 type Rating = "again" | "good" | "easy";
 
@@ -49,6 +50,7 @@ export function LearnClient({
     const [error, setError] = useState<string | null>(null);
 
     const totalCount = initialTotalTodayCount;
+    const levelProgress = getLevelProgress(xp);
     const progress =
         totalCount === 0
             ? 100
@@ -102,7 +104,11 @@ export function LearnClient({
         return (
             <main className="min-h-screen px-4 py-5 sm:px-8 sm:py-8">
                 <div className="mx-auto flex min-h-[calc(100vh-2.5rem)] w-full max-w-3xl flex-col gap-6">
-                    <LearningTopBar streak={streak} xp={xp} />
+                    <LearningTopBar
+                        streak={streak}
+                        xp={xp}
+                        level={levelProgress.level}
+                    />
 
                     <Card className="my-auto border-emerald-100 bg-white/90">
                         <CardContent className="flex flex-col items-center p-8 text-center sm:p-10">
@@ -140,7 +146,11 @@ export function LearnClient({
     return (
         <main className="min-h-screen px-4 py-5 sm:px-8 sm:py-8">
             <div className="mx-auto flex w-full max-w-4xl flex-col gap-5">
-                <LearningTopBar streak={streak} xp={xp} />
+                <LearningTopBar
+                    streak={streak}
+                    xp={xp}
+                    level={levelProgress.level}
+                />
 
                 <section className="grid gap-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
                     <Button
@@ -204,7 +214,15 @@ export function LearnClient({
     );
 }
 
-function LearningTopBar({ streak, xp }: { streak: number; xp: number }) {
+function LearningTopBar({
+    streak,
+    xp,
+    level,
+}: {
+    streak: number;
+    xp: number;
+    level: number;
+}) {
     return (
         <header className="flex items-center justify-between gap-3 rounded-full border border-white/70 bg-white/80 px-4 py-3 shadow-sm backdrop-blur">
             <div className="flex min-w-0 items-center gap-3">
@@ -227,6 +245,10 @@ function LearningTopBar({ streak, xp }: { streak: number; xp: number }) {
                 <div className="flex h-10 items-center gap-1.5 rounded-full bg-sky-100 px-3 text-sm font-black text-sky-700">
                     <Gem className="size-4" />
                     {xp}
+                </div>
+                <div className="hidden h-10 items-center gap-1.5 rounded-full bg-violet-100 px-3 text-sm font-black text-violet-700 sm:flex">
+                    <Award className="size-4" />
+                    {level}
                 </div>
             </div>
         </header>

@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { ArrowRight, Cat, Flame, Gem, Palette, Target, Trophy } from "lucide-react";
+import { ArrowRight, Cat, Flame, Gem, Award, Target, Trophy } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { getTodaySession } from "@/lib/session";
+import { getLevelProgress } from "@/lib/level";
+import { getNextTheme } from "@/lib/themes";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { ThemePanel } from "@/components/ThemePanel";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -21,6 +24,8 @@ export default async function HomePage() {
   const session = await getTodaySession(DUMMY_USER_ID);
   const streak = user?.streak ?? 0;
   const xp = user?.xp ?? 0;
+  const levelProgress = getLevelProgress(xp);
+  const nextTheme = getNextTheme(levelProgress.level);
   const hasCardsToday = session.remainingCount > 0;
 
   return (
@@ -47,6 +52,10 @@ export default async function HomePage() {
               <div className="flex h-10 items-center gap-1.5 rounded-full bg-sky-100 px-3 text-sm font-bold text-sky-700">
                 <Gem className="size-4" />
                 {xp}
+              </div>
+              <div className="hidden h-10 items-center gap-1.5 rounded-full bg-violet-100 px-3 text-sm font-bold text-violet-700 sm:flex">
+                <Award className="size-4" />
+                {levelProgress.level}
               </div>
             </div>
           </header>
@@ -83,12 +92,12 @@ export default async function HomePage() {
                       {session.reviewedTodayCount}
                     </p>
                   </div>
-                  <div className="rounded-3xl bg-amber-50 p-4">
-                    <p className="text-xs font-bold uppercase text-amber-600">
-                      Fortschritt
+                  <div className="rounded-3xl bg-violet-50 p-4">
+                    <p className="text-xs font-bold uppercase text-violet-600">
+                      Level
                     </p>
                     <p className="mt-2 text-3xl font-black text-slate-900">
-                      {session.progress}%
+                      {levelProgress.level}
                     </p>
                   </div>
                 </div>
@@ -131,25 +140,35 @@ export default async function HomePage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-emerald-100 bg-emerald-50/90">
+              <Card className="border-violet-100">
                 <CardContent className="p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="flex size-14 items-center justify-center rounded-3xl bg-white text-emerald-600 shadow-sm">
-                      <Palette className="size-7" />
-                    </div>
+                  <div className="mb-4 flex items-center justify-between gap-3">
                     <div>
-                      <p className="text-sm font-bold text-emerald-700">
-                        Nächstes Theme
+                      <p className="text-sm font-bold text-muted-foreground">
+                        XP-Level
                       </p>
-                      <p className="mt-1 text-sm leading-6 text-emerald-800/80">
-                        Themes können später über XP freigeschaltet werden.
+                      <p className="text-2xl font-black text-slate-900">
+                        Level {levelProgress.level}
                       </p>
+                    </div>
+                    <div className="flex size-14 items-center justify-center rounded-3xl bg-violet-100 text-violet-700">
+                      <Award className="size-7" />
                     </div>
                   </div>
+                  <Progress value={levelProgress.progress} />
+                  <p className="mt-3 text-sm font-medium text-muted-foreground">
+                    {levelProgress.xpForNextLevel - levelProgress.xpIntoLevel} XP
+                    bis Level {levelProgress.level + 1}.
+                    {nextTheme
+                      ? ` ${nextTheme.name} wird ab Level ${nextTheme.requiredLevel} freigeschaltet.`
+                      : " Alle geplanten Themes sind freigeschaltet."}
+                  </p>
                 </CardContent>
               </Card>
             </div>
           </section>
+
+          <ThemePanel level={levelProgress.level} />
         </div>
       </main>
   );

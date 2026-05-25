@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Nunito } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -28,7 +29,9 @@ export default function RootLayout({
       lang="de"
       className={`${nunito.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
